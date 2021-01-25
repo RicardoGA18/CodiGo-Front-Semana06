@@ -10,9 +10,12 @@ form.addEventListener("submit", event =>{
     let task = input.value;
     let tasks = getTasks();
 
+    if(!tasks){
+        tasks = [];
+    }
+
     if(!tasks.length){
         boxTasks.innerHTML = "";
-        tasks = [];
     }
 
     tasks.push(task);
@@ -74,6 +77,10 @@ function setTasks(tasks){
 
 function drawTasks(){
     let tasks = getTasks();
+
+    if(!tasks){
+        tasks = [];
+    }
 
     if(tasks.length){
         tasks.forEach(task=>{
